@@ -2,7 +2,12 @@
   // html2mdのためのライブラリを読み込む
   if (!window.TurndownService) {
     const scriptEl = document.createElement('script');
-    scriptEl.src = 'https://unpkg.com/turndown/dist/turndown.js';
+    // ハッシュの検証でCDN先の乗っ取り対策
+    scriptEl.integrity =
+      'sha512-vs+sfpOrzS4lF58OlkJP4vJSeUPKQFbhEeVA4wycLrlwThE+oKkbIWxi40ADv3UdmLLrRnfgTL3mGDLT+nih6Q==';
+    scriptEl.src = 'https://cdnjs.cloudflare.com/ajax/libs/turndown/7.1.2/turndown.js';
+    scriptEl.crossOrigin = 'anonymous';
+    scriptEl.referrerPolicy = 'no-referrer';
     document.body.appendChild(scriptEl);
   }
   // ライブラリが読み込まれるまで待つ
