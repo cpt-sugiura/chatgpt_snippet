@@ -2,13 +2,14 @@
   let i = 0;
   const MAX_COUNT = 10;
   const inputText = prompt('ChatGPTに渡す文字列を入力してください');
-  const element = document.querySelector('textarea');
+  const textAreaEl = document.querySelector('textarea');
   console.log('repeat start');
-  console.log(element);
+  console.log(textAreaEl);
   const intervalId = setInterval(() => {
-    element.value = inputText;
+    textAreaEl.value = inputText;
     console.log({ i });
-    const textAreaEl = document.querySelector('textarea');
+    const btnEl = document.querySelector('button.absolute');
+    btnEl.click();
     textAreaEl.dispatchEvent(
       new KeyboardEvent('keydown', {
         key: 'Enter',
